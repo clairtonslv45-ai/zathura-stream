@@ -3,148 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZATHURA – O UNIVERSO DO CINEMA</title>
+    <title>Zathura - O Universo do Cinema</title>
     <style>
-        :root {
-            --blue-glow: #4da6ff;
-            --space-dark: #050505;
-        }
+        body { margin: 0; padding: 0; background-color: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; }
 
-        body { 
-            margin: 0; padding: 0; color: #fff; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--space-dark) url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center fixed;
+        /* 1. Header Transparente */
+        header {
+            position: absolute;
+            top: 0; width: 100%;
+            display: flex; justify-content: center;
+            padding: 20px 0; z-index: 10;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+        header nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* 2. Hero Section (A Imagem é o Centro) */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center;
             background-size: cover;
-            overflow-x: hidden;
-        }
-
-        /* Camada imersiva (Nebulosa) */
-        .universe-overlay {
-            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: flex-end; /* Gradiente começa de baixo */
+        }
+        .hero-overlay {
+            width: 100%; height: 30%;
+            background: linear-gradient(to top, #050505, transparent);
         }
 
-        /* Hero Section - O Coração do Site */
-        header { 
-            padding: 100px 20px 40px; 
-            text-align: center;
-            perspective: 1000px;
-        }
+        /* 3. Área de Conteúdo (Abaixo da Imagem) */
+        .content { padding: 40px 20px; text-align: center; }
+        
+        .welcome-box { margin-bottom: 40px; }
+        .welcome-box h2 { font-size: 1.8rem; margin: 0; color: #4da6ff; }
+        .welcome-box p { font-size: 1.1rem; color: #888; margin: 10px 0; }
 
-        .logo-zathura { 
-            font-size: 5rem; 
-            font-weight: 900; 
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 12px;
+        /* 4. Botões de Gênero (Fieis à imagem) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .btn-genero {
+            background: #0a0a0a;
             color: #fff;
-            /* Efeito Metálico e Brilho Azul */
-            background: linear-gradient(to bottom, #ffffff 30%, #4da6ff 60%, #0056b3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(77, 166, 255, 0.8));
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .subtitulo { 
-            font-size: 1.2rem; 
-            letter-spacing: 6px; 
-            font-weight: bold; 
-            color: #4da6ff;
-            text-shadow: 0 0 10px rgba(77, 166, 255, 0.5);
-            margin-bottom: 30px;
-        }
-
-        .welcome-msg {
-            margin-bottom: 50px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-        .welcome-msg h2 { font-size: 1.5rem; font-weight: 300; margin: 0; }
-        .welcome-msg p { font-size: 1rem; color: #bbb; margin: 5px 0; }
-
-        /* Grid de Portais (Gêneros) */
-        .container { width: 90%; max-width: 900px; padding-bottom: 100px; }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-            gap: 25px; 
-        }
-
-        .portal-btn {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 20px;
+            border-radius: 8px;
             text-decoration: none;
-            color: #fff;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border-radius: 50px; /* Formato Cápsula */
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #1a1a1a;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        /* Glow conforme a cor do gênero */
+        .btn-genero:hover {
+            transform: translateY(-5px);
+            border-color: var(--glow);
+            box-shadow: 0 0 15px var(--glow);
         }
 
-        .portal-btn:hover {
-            transform: scale(1.1) translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 30px var(--glow-color);
-            border-color: var(--glow-color);
-        }
-
-        /* Rodapé conforme solicitado */
-        footer { 
-            margin-top: auto; 
-            padding: 60px 20px; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-        }
-        .insta-footer { text-decoration: none; color: #ccc; font-size: 14px; }
-        .insta-icon { width: 40px; margin-top: 15px; display: block; margin-left: auto; margin-right: auto; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+        /* 5. Rodapé */
+        footer { margin-top: 80px; padding: 40px; border-top: 1px solid #111; }
+        .insta-footer { text-decoration: none; color: #666; font-size: 0.8rem; }
+        .insta-icon { width: 35px; margin-top: 15px; filter: grayscale(1); transition: 0.3s; }
+        .insta-icon:hover { filter: none; }
 
         @media (max-width: 600px) {
-            .logo-zathura { font-size: 3rem; letter-spacing: 6px; }
-            .grid { grid-template-columns: 1fr; }
+            .hero { height: 80vh; background-position: center top; }
+            .grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="universe-overlay">
-        <header>
-            <h1 class="logo-zathura">ZATHURA</h1>
-            <div class="subtitulo">O UNIVERSO DO ENTRETENIMENTO</div>
-            
-            <div class="welcome-msg">
-                <h2>Sejam bem-vindos à Zathura Stream!</h2>
-                <p>Onde o cinema vai até sua casa</p>
-            </div>
-        </header>
 
-        <div class="container">
-            <div class="grid">
-                {% for g in generos %}
-                <a href="/categoria/{{ g.slug }}" class="portal-btn" style="--glow-color: {{ g.cor }}">
-                    🎬 {{ g.nome }}
-                </a>
-                {% endfor %}
-            </div>
+    <header>
+        <nav>
+            <a href="/">Início</a>
+            <a href="#">Filmes</a>
+            <a href="#">Gêneros</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+    </section>
+
+    <div class="content">
+        <div class="welcome-box">
+            <h2>Sejam bem-vindos à Zathura Stream!</h2>
+            <p>Onde o cinema vai até sua casa</p>
         </div>
 
-        <footer>
-            <p>Sugestões? Contacte-me no Instagram</p>
-            <a href="https://instagram.com/clairtonslv45-ai" class="insta-footer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="insta-icon">
+        <div class="grid">
+            {% for g in generos %}
+            <a href="/categoria/{{ g.slug }}" class="btn-genero" style="--glow: {{ g.cor }}">
+                {{ g.nome }}
             </a>
-        </footer>
+            {% endfor %}
+        </div>
     </div>
+
+    <footer>
+        <p>Sugestões? Contacte-me no Instagram</p>
+        <a href="https://instagram.com/clairtonslv45-ai" class="insta-footer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="insta-icon">
+        </a>
+    </footer>
+
 </body>
 </html>
