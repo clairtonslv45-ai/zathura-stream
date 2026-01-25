@@ -6,106 +6,33 @@
     <title>Zathura - O Universo do Entretenimento</title>
     <style>
         body { 
-            margin: 0; 
-            padding: 0; 
-            color: #fff; 
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background: #000 url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center fixed;
-            background-size: cover;
+            margin: 0; background: #000 url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center fixed;
+            background-size: cover; color: #fff; font-family: sans-serif;
         }
-
-        /* Camada escura para dar leitura aos botões */
-        .overlay {
-            background: rgba(0, 0, 0, 0.6);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .overlay { background: rgba(0, 0, 0, 0.5); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        .header-space { padding-top: 250px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; width: 90%; max-width: 600px; }
+        .card { 
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            padding: 20px; border-radius: 15px; text-align: center; 
+            text-decoration: none; color: #fff; font-weight: bold; border: 1px solid rgba(255,255,255,0.2);
+            text-transform: uppercase; letter-spacing: 1px;
         }
-
-        .header-space { 
-            padding: 80px 20px 40px; 
-            text-align: center; 
-        }
-        
-        /* Estilo do título baseado na imagem */
-        .header-space h1 { 
-            font-size: 3.5rem; 
-            margin: 0; 
-            color: #4da6ff; 
-            text-shadow: 0 0 20px #0056b3, 0 0 30px #00ccff;
-            letter-spacing: 5px; 
-            text-transform: uppercase;
-        }
-
-        .container { 
-            width: 90%; 
-            max-width: 800px; 
-            flex-grow: 1;
-        }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-            gap: 20px; 
-            margin-top: 30px;
-        }
-
-        .card {
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: 0.3s;
-        }
-
-        .card:hover { 
-            transform: scale(1.05); 
-            background: rgba(255, 255, 255, 0.2);
-            border-color: #4da6ff;
-            box-shadow: 0 0 15px #4da6ff;
-        }
-
-        footer { 
-            width: 100%;
-            text-align: center; 
-            padding: 40px 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-        }
-
-        .insta-text { margin-bottom: 10px; font-size: 14px; color: #ccc; }
-        .insta-icon { width: 40px; transition: 0.3s; }
-        .insta-icon:hover { transform: translateY(-5px); }
+        footer { margin-top: auto; padding: 40px; text-align: center; width: 100%; }
+        .insta-icon { width: 40px; margin-top: 10px; }
     </style>
 </head>
 <body>
     <div class="overlay">
         <div class="header-space">
-            <h1>ZATHURA</h1>
-            <p style="color: #4da6ff; letter-spacing: 2px;">O UNIVERSO DO ENTRETENIMENTO</p>
-        </div>
-
-        <div class="container">
-            <div class="grid">
-                {% for g in generos %}
-                <a href="/categoria/{{ g.slug }}" class="card">
-                    {{ g.nome }}
-                </a>
-                {% endfor %}
             </div>
+        <div class="grid">
+            {% for g in generos %}
+            <a href="/categoria/{{ g.slug }}" class="card" style="border-bottom: 4px solid {{ g.cor }}">{{ g.nome }}</a>
+            {% endfor %}
         </div>
-
         <footer>
-            <p class="insta-text">Sugestões? Contacte-me no Instagram</p>
+            <p>Sugestões? Contacte-me no Instagram</p>
             <a href="https://instagram.com/clairtonslv45-ai">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="insta-icon">
             </a>
