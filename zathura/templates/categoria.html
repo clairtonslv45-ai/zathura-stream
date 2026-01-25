@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ genero.nome }} | Zathura</title>
+    <style>
+        :root { --accent: {{ genero.cor }}; }
+        body { background: #050505; color: white; font-family: 'Segoe UI', sans-serif; margin: 0; }
+        .header { padding: 25px 15px; text-align: center; }
+        .header h1 { color: var(--accent); margin: 0; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-voltar { color: #444; text-decoration: none; font-size: 0.7rem; display: block; margin-top: 5px; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; padding: 15px; max-width: 1200px; margin: 0 auto; }
+        .card { background: #0f0f0f; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.03); text-decoration: none; color: white; transition: 0.2s ease; display: flex; flex-direction: column; }
+        .card:hover { border-color: var(--accent); transform: scale(1.04); background: #141414; }
+        .bloco-capa { width: 100%; aspect-ratio: 16 / 9; background: linear-gradient(-45deg, var(--accent), #000, var(--accent)); background-size: 300% 300%; animation: gradienteMovimento 8s linear infinite; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .bloco-capa img { width: 100%; height: 100%; object-fit: cover; }
+        @keyframes gradienteMovimento { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .info { padding: 10px; }
+        .filme-titulo { font-weight: 600; font-size: 0.8rem; margin-bottom: 8px; height: 32px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.2; }
+        .btn-play { background: var(--accent); color: white; width: 100%; padding: 6px; border-radius: 2px; font-weight: bold; text-transform: uppercase; font-size: 0.65rem; text-align: center; }
+        footer { text-align: center; padding: 40px 20px; color: #333; font-size: 0.75rem; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header"><h1>{{ genero.nome }}</h1><a href="/" class="btn-voltar">← VOLTAR</a></div>
+    <div class="grid">
+        {% for filme in filmes %}
+        <a href="/player?t={{ filme.titulo }}&l={{ filme.link }}" class="card">
+            <div class="bloco-capa">
+                {% if filme.thumb %}<img src="{{ filme.thumb }}" referrerpolicy="no-referrer">{% endif %}
+            </div>
+            <div class="info"><div class="filme-titulo">{{ filme.titulo }}</div><div class="btn-play">ASSISTIR</div></div>
+        </a>
+        {% endfor %}
+    </div>
+    <footer>Sugestões? Contacte-me no Instagram</footer>
+</body>
+</html>
