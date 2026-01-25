@@ -3,88 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zathura Stream</title>
+    <title>ZATHURA – O UNIVERSO DO CINEMA</title>
     <style>
-        body { 
-            margin: 0; padding: 0; color: #fff; font-family: 'Arial', sans-serif;
-            background: #000 url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center fixed;
-            background-size: cover;
+        :root {
+            --blue-glow: #4da6ff;
+            --space-dark: #050505;
         }
 
-        .overlay {
-            background: rgba(0, 0, 0, 0.4); /* Escurece levemente o fundo para ler os textos */
+        body { 
+            margin: 0; padding: 0; color: #fff; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--space-dark) url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        /* Camada imersiva (Nebulosa) */
+        .universe-overlay {
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        /* Hero Section - O Coração do Site */
+        header { 
+            padding: 100px 20px 40px; 
             text-align: center;
+            perspective: 1000px;
         }
 
-        /* Topo do Site */
-        header { padding-top: 60px; }
-        .titulo-principal { 
-            font-size: 3.5rem; font-weight: 900; margin: 0;
-            color: #4da6ff; text-shadow: 0 0 15px #0056b3, 2px 2px #000;
-            letter-spacing: 4px;
+        .logo-zathura { 
+            font-size: 5rem; 
+            font-weight: 900; 
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            color: #fff;
+            /* Efeito Metálico e Brilho Azul */
+            background: linear-gradient(to bottom, #ffffff 30%, #4da6ff 60%, #0056b3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(77, 166, 255, 0.8));
+            animation: float 4s ease-in-out infinite;
         }
+
         .subtitulo { 
-            font-size: 1.2rem; margin-top: -5px; color: #fff;
-            letter-spacing: 3px; font-weight: bold; text-shadow: 1px 1px 5px #000;
+            font-size: 1.2rem; 
+            letter-spacing: 6px; 
+            font-weight: bold; 
+            color: #4da6ff;
+            text-shadow: 0 0 10px rgba(77, 166, 255, 0.5);
+            margin-bottom: 30px;
         }
 
-        /* Mensagens de Boas-vindas */
-        .welcome-section { margin-top: 40px; padding: 0 20px; }
-        .welcome-section h2 { font-size: 1.4rem; margin-bottom: 5px; font-weight: 400; }
-        .welcome-section p { font-size: 1.1rem; color: #ccc; font-style: italic; }
+        .welcome-msg {
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .welcome-msg h2 { font-size: 1.5rem; font-weight: 300; margin: 0; }
+        .welcome-msg p { font-size: 1rem; color: #bbb; margin: 5px 0; }
 
-        /* Grid de Categorias */
-        .container { width: 90%; max-width: 800px; margin-top: 30px; flex-grow: 1; }
+        /* Grid de Portais (Gêneros) */
+        .container { width: 90%; max-width: 900px; padding-bottom: 100px; }
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-            gap: 15px; 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 25px; 
         }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            padding: 20px 10px;
-            border-radius: 12px;
+
+        .portal-btn {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
             color: #fff;
             font-weight: bold;
             text-transform: uppercase;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: 0.3s;
-        }
-        .card:hover { 
-            background: rgba(77, 166, 255, 0.3); 
-            border-color: #4da6ff;
-            transform: translateY(-3px);
+            letter-spacing: 2px;
+            border-radius: 50px; /* Formato Cápsula */
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Rodapé Conforme sua Instrução */
-        footer { padding: 40px 20px; width: 100%; }
-        .insta-footer { text-decoration: none; color: #fff; }
-        .insta-icon { width: 45px; margin-top: 10px; }
+        .portal-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 30px var(--glow-color);
+            border-color: var(--glow-color);
+        }
+
+        /* Rodapé conforme solicitado */
+        footer { 
+            margin-top: auto; 
+            padding: 60px 20px; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+        .insta-footer { text-decoration: none; color: #ccc; font-size: 14px; }
+        .insta-icon { width: 40px; margin-top: 15px; display: block; margin-left: auto; margin-right: auto; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @media (max-width: 600px) {
+            .logo-zathura { font-size: 3rem; letter-spacing: 6px; }
+            .grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <div class="overlay">
+    <div class="universe-overlay">
         <header>
-            <h1 class="titulo-principal">ZATHURA</h1>
-            <div class="subtitulo">UNIVERSO DO ENTRETENIMENTO</div>
+            <h1 class="logo-zathura">ZATHURA</h1>
+            <div class="subtitulo">O UNIVERSO DO ENTRETENIMENTO</div>
+            
+            <div class="welcome-msg">
+                <h2>Sejam bem-vindos à Zathura Stream!</h2>
+                <p>Onde o cinema vai até sua casa</p>
+            </div>
         </header>
-
-        <section class="welcome-section">
-            <h2>Sejam bem-vindos à Zathura Stream!</h2>
-            <p>Onde o cinema vai até sua casa</p>
-        </section>
 
         <div class="container">
             <div class="grid">
                 {% for g in generos %}
-                <a href="/categoria/{{ g.slug }}" class="card" style="border-bottom: 3px solid {{ g.cor }}">
-                    {{ g.nome }}
+                <a href="/categoria/{{ g.slug }}" class="portal-btn" style="--glow-color: {{ g.cor }}">
+                    🎬 {{ g.nome }}
                 </a>
                 {% endfor %}
             </div>
