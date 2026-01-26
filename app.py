@@ -28,6 +28,9 @@ filmes_db = {
         {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/videoembed/1396647398042"}
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
+    "animacao": [
+        {"titulo": "O Caminho para El Dorado (2000)", "link": "https://share.google/BzFp8HIOpzlIZcKaD"}
+    ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
         {"titulo": "O Fantasma da Ópera (1989)", "link": "https://ok.ru/videoembed/4830921034296"},
