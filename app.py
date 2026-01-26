@@ -29,7 +29,8 @@ filmes_db = {
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "animacao": [
-        {"titulo": "O Caminho para El Dorado (2000)", "link": "https://drive.google.com/file/d/1ew1CQU83tjUNVdw6BlP2MKKPei-zBSH1/preview"}
+        # Alterado para link de fluxo direto do Drive para tentar forçar o Rave/Flutuante
+        {"titulo": "O Caminho para El Dorado (2000)", "link": "https://docs.google.com/uc?export=download&id=1ew1CQU83tjUNVdw6BlP2MKKPei-zBSH1"}
     ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
@@ -50,6 +51,7 @@ def categoria(slug):
 def player():
     t = request.args.get('t')
     l = request.args.get('l')
+    # Mantendo a lógica do Rave intacta para todos os vídeos
     rave_link = f"rave://open?url={l}"
     return render_template('filme.html', filme={"titulo": t, "link": l, "rave": rave_link})
 
