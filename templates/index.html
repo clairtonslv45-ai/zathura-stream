@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zathura Stream</title>
     <style>
-        /* O Background Real: Imagem fixa que cobre tudo */
         body { 
             margin: 0; padding: 0; 
             background: #000 url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center fixed;
@@ -14,7 +13,6 @@
             font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
-        /* Camada para dar profundidade e leitura */
         .glass-overlay {
             min-height: 100vh;
             background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
@@ -23,32 +21,51 @@
             align-items: center;
         }
 
-        /* Topo Minimalista */
+        /* Títulos no alto do site conforme a foto */
         header { 
-            padding: 80px 20px 20px; 
+            padding: 60px 20px 20px; 
             text-align: center;
         }
         
-        /* Mensagem de Boas-vindas com efeito Glass */
+        .zathura-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #ffffff 40%, #4da6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(77, 166, 255, 0.8));
+        }
+
+        .universo-subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            font-weight: bold;
+            color: #fff;
+            margin-top: -5px;
+            text-shadow: 0 0 10px rgba(77, 166, 255, 0.8);
+            text-transform: uppercase;
+        }
+
         .welcome-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
+            padding: 25px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 20px;
+            margin: 40px 20px 20px;
             max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
         }
-        .welcome-card h2 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; color: #4da6ff; }
-        .welcome-card p { margin: 10px 0 0; font-size: 1rem; color: #eee; font-weight: 300; }
+        .welcome-card h2 { margin: 0; font-size: 1.3rem; color: #fff; }
+        .welcome-card p { margin: 10px 0 0; color: #4da6ff; font-weight: bold; }
 
-        /* Container de Botões */
         .container { 
             width: 90%; 
             max-width: 900px; 
-            padding: 40px 0;
+            padding: 20px 0;
             flex-grow: 1;
         }
 
@@ -58,58 +75,38 @@
             gap: 15px; 
         }
 
-        /* Botões Estilo "Portal" */
         .btn-portal {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(5px);
-            padding: 25px 15px;
+            padding: 20px;
             border-radius: 12px;
             text-decoration: none;
             color: #fff;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            transition: 0.3s;
+            border-top: 3px solid var(--glow);
         }
 
         .btn-portal:hover {
             transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--glow);
             box-shadow: 0 0 20px var(--glow);
         }
 
-        /* Linha de cor no topo do botão */
-        .btn-portal::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: var(--glow);
-        }
-
-        /* Rodapé com a sua instrução */
         footer { 
-            width: 100%; text-align: center; padding: 60px 0;
-            background: linear-gradient(transparent, #000);
+            width: 100%; text-align: center; padding: 40px 0;
         }
-        .insta-footer { text-decoration: none; color: #aaa; font-size: 13px; }
-        .insta-icon { width: 40px; margin-top: 15px; display: block; margin-left: auto; margin-right: auto; }
-
-        /* Responsividade */
-        @media (max-width: 600px) {
-            header { padding-top: 40px; }
-            .grid { grid-template-columns: 1fr 1fr; }
-        }
+        .insta-icon { width: 40px; margin-top: 10px; }
     </style>
 </head>
 <body>
     <div class="glass-overlay">
         <header>
-            </header>
+            <h1 class="zathura-title">ZATHURA</h1>
+            <div class="universo-subtitle">O UNIVERSO DO ENTRETENIMENTO</div>
+        </header>
 
         <div class="welcome-card">
             <h2>Sejam bem-vindos à Zathura Stream!</h2>
@@ -128,7 +125,7 @@
 
         <footer>
             <p>Sugestões? Contacte-me no Instagram</p>
-            <a href="https://instagram.com/clairtonslv45-ai" class="insta-footer">
+            <a href="https://instagram.com/clairtonslv45-ai">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="insta-icon">
             </a>
         </footer>
