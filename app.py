@@ -29,7 +29,8 @@ filmes_db = {
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "animacao": [
-        {"titulo": "O Caminho para El Dorado (2000)", "link": "https://pony.tube/videos/embed/4JuXKqQX2yT81JxXSnqm7B"}
+        # Link do OK.ru para garantir o funcionamento do Flutuante/Rave
+        {"titulo": "O Caminho para El Dorado (2000)", "link": "https://ok.ru/videoembed/267825318534"}
     ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
