@@ -7,7 +7,6 @@
     <style>
         body { background: #000; color: #fff; font-family: sans-serif; text-align: center; margin: 0; padding-top: 20px; }
         
-        /* Título acima do vídeo */
         .movie-title { 
             font-size: 1.5rem; 
             margin-bottom: 20px; 
@@ -18,8 +17,19 @@
             text-shadow: 0 0 10px rgba(77, 166, 255, 0.5);
         }
 
+        /* Container do vídeo com a borda amarela */
+        .video-wrapper {
+            max-width: 95%;
+            margin: 0 auto;
+            border: 3px solid #f1c40f; /* Borda amarela */
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4); /* Brilho amarelo sutil */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
         .controls { padding: 20px; }
         
         .btn-rave { 
@@ -57,8 +67,10 @@
 <body>
     <div class="movie-title">{{ filme.titulo }}</div>
 
-    <div class="video-container">
-        <iframe src="{{ filme.link }}" allowfullscreen></iframe>
+    <div class="video-wrapper">
+        <div class="video-container">
+            <iframe src="{{ filme.link }}" allowfullscreen></iframe>
+        </div>
     </div>
 
     <div class="controls">
