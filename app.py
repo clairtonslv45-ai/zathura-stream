@@ -13,11 +13,8 @@ generos = [
     {"nome": "Cinema antigo", "slug": "cinema-antigo", "cor": "#00ffff"}
 ]
 
-# Links convertidos para o formato /videoembed/ igual ao Clube dos Cinco
 filmes_db = {
-    "acao": [
-        {"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}
-    ],
+    "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}],
     "comedia": [
         {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/videoembed/6695168969223"},
         {"titulo": "Um maluco no golfe (1996)", "link": "https://ok.ru/videoembed/4207491549845"},
@@ -29,9 +26,7 @@ filmes_db = {
         {"titulo": "O Profissional (1994)", "link": "https://ok.ru/videoembed/3663969651428"},
         {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/videoembed/1396647398042"}
     ],
-    "romance": [
-        {"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}
-    ],
+    "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
         {"titulo": "O Fantasma da Ópera (1989)", "link": "https://ok.ru/videoembed/4830921034296"},
@@ -40,8 +35,7 @@ filmes_db = {
 }
 
 @app.route('/')
-def index():
-    return render_template('index.html', generos=generos)
+def index(): return render_template('index.html', generos=generos)
 
 @app.route('/categoria/<slug>')
 def categoria(slug):
@@ -52,7 +46,9 @@ def categoria(slug):
 def player():
     t = request.args.get('t')
     l = request.args.get('l')
-    return render_template('filme.html', filme={"titulo": t, "link": l})
+    # Link do Rave que abre o vídeo externamente
+    rave_link = f"rave://open?url={l}"
+    return render_template('filme.html', filme={"titulo": t, "link": l, "rave": rave_link})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
