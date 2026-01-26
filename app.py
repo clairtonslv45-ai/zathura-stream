@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from Flask import Flask, render_template, request
 import os
 
 app = Flask(__name__)
@@ -29,8 +29,8 @@ filmes_db = {
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "animacao": [
-        # Link do OK.ru para garantir o funcionamento do Flutuante/Rave
-        {"titulo": "O Caminho para El Dorado (2000)", "link": "https://ok.ru/videoembed/267825318534"}
+        # Novo link OK.ru atualizado e funcionando
+        {"titulo": "O Caminho para El Dorado (2000)", "link": "https://ok.ru/videoembed/4979116345890"}
     ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
