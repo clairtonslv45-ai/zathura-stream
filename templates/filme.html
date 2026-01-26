@@ -9,12 +9,24 @@
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .controls { padding: 20px; }
+        
+        /* Botão Amarelo Ajustado */
         .btn-rave { 
-            background: #f1c40f; color: #000; padding: 15px 25px; 
-            text-decoration: none; font-weight: bold; border-radius: 50px;
-            display: inline-block; box-shadow: 0 0 20px #f1c40f; margin-bottom: 15px;
+            background: #f1c40f; 
+            color: #000; 
+            padding: 10px 20px; /* Tamanho reduzido */
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.9rem; /* Texto um pouco menor */
+            border-radius: 5px; /* Formato mais retangular/discreto */
+            display: inline-block; 
+            box-shadow: 0 0 10px rgba(241, 196, 15, 0.5); 
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .btn-back { color: #888; text-decoration: none; display: block; margin-top: 10px; }
+        
+        .btn-back { color: #888; text-decoration: none; display: block; margin-top: 10px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -22,7 +34,7 @@
         <iframe src="{{ filme.link }}" allowfullscreen></iframe>
     </div>
     <div class="controls">
-        <a href="{{ filme.rave }}" class="btn-rave">✨ ABRIR NO RAVE (ASSISTIR JUNTO)</a>
+        <a href="{{ filme.rave }}" class="btn-rave">ASSISTIR</a>
         <a href="javascript:history.back()" class="btn-back">← Voltar</a>
     </div>
 </body>
