@@ -13,29 +13,35 @@ generos = [
     {"nome": "Cinema antigo", "slug": "cinema-antigo", "cor": "#00ffff"}
 ]
 
+# Links convertidos para o formato /videoembed/ igual ao Clube dos Cinco
 filmes_db = {
-    "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/video/1922594835104"}],
+    "acao": [
+        {"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}
+    ],
     "comedia": [
-        {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/video/6695168969223"},
-        {"titulo": "Um maluco no golfe (1996)", "link": "https://ok.ru/video/4207491549845"},
-        {"titulo": "As Apimentadas", "link": "https://ok.ru/video/559416216263"},
-        {"titulo": "As Apimentadas - Mandando Ver", "link": "https://ok.ru/video/8832564726368"}
+        {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/videoembed/6695168969223"},
+        {"titulo": "Um maluco no golfe (1996)", "link": "https://ok.ru/videoembed/4207491549845"},
+        {"titulo": "As Apimentadas", "link": "https://ok.ru/videoembed/559416216263"},
+        {"titulo": "As Apimentadas - Mandando Ver", "link": "https://ok.ru/videoembed/8832564726368"}
     ],
     "drama": [
-        {"titulo": "Corra, Lola, Corra (1998)", "link": "https://ok.ru/video/6370743749303"},
-        {"titulo": "O Profissional (1994)", "link": "https://ok.ru/video/3663969651428"},
-        {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/video/1396647398042"}
+        {"titulo": "Corra, Lola, Corra (1998)", "link": "https://ok.ru/videoembed/6370743749303"},
+        {"titulo": "O Profissional (1994)", "link": "https://ok.ru/videoembed/3663969651428"},
+        {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/videoembed/1396647398042"}
     ],
-    "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/video/10438247451277"}],
+    "romance": [
+        {"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}
+    ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
-        {"titulo": "O Fantasma da Ópera (1989)", "link": "https://ok.ru/video/4830921034296"},
-        {"titulo": "A orgia da morte (1964)", "link": "https://ok.ru/video/5179913472682"}
+        {"titulo": "O Fantasma da Ópera (1989)", "link": "https://ok.ru/videoembed/4830921034296"},
+        {"titulo": "A orgia da morte (1964)", "link": "https://ok.ru/videoembed/5179913472682"}
     ]
 }
 
 @app.route('/')
-def index(): return render_template('index.html', generos=generos)
+def index():
+    return render_template('index.html', generos=generos)
 
 @app.route('/categoria/<slug>')
 def categoria(slug):
