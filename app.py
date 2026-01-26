@@ -22,6 +22,7 @@ filmes_db = {
         {"titulo": "As Apimentadas - Mandando Ver", "link": "https://ok.ru/videoembed/8832564726368"}
     ],
     "drama": [
+        {"titulo": "Notorious B.I.G. (2009)", "link": "https://ok.ru/videoembed/30186211954"},
         {"titulo": "Corra, Lola, Corra (1998)", "link": "https://ok.ru/videoembed/6370743749303"},
         {"titulo": "O Profissional (1994)", "link": "https://ok.ru/videoembed/3663969651428"},
         {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/videoembed/1396647398042"}
@@ -46,7 +47,6 @@ def categoria(slug):
 def player():
     t = request.args.get('t')
     l = request.args.get('l')
-    # Link do Rave que abre o vídeo externamente
     rave_link = f"rave://open?url={l}"
     return render_template('filme.html', filme={"titulo": t, "link": l, "rave": rave_link})
 
