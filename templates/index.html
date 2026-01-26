@@ -5,21 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zathura Stream</title>
     <style>
-        /* Configuração do Background do Universo */
         body { 
             margin: 0; padding: 0; 
-            /* Imagem de alta qualidade de nebulosa/universo */
             background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2072&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover; /* Garante que cobre a tela toda */
+            background-size: cover;
             color: #fff;
             font-family: 'Arial', sans-serif;
             text-align: center;
         }
 
-        /* Camada escura para melhorar a leitura sobre as estrelas */
         .overlay {
             min-height: 100vh;
-            /* Gradiente sutil para dar profundidade */
             background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
             display: flex;
             flex-direction: column;
@@ -27,7 +23,6 @@
             padding: 40px 20px;
         }
 
-        /* Estilos do Logo (Mantidos) */
         header { margin-bottom: 30px; }
         .logo-box h1 { 
             font-size: 3.5rem; margin: 0; font-weight: 900; letter-spacing: 5px;
@@ -42,49 +37,52 @@
             text-transform: uppercase;
         }
 
-        /* Estilos de Boas-vindas (Mantidos) */
         .welcome { margin: 20px 0; }
         .welcome h2 { font-size: 1.2rem; margin: 0; font-weight: normal; }
         .welcome p { font-size: 1rem; color: #4da6ff; margin: 5px 0; font-weight: bold; }
 
-        /* Grid dos Círculos Neon (Mantidos) */
         .grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 20px; 
             width: 100%; 
-            max-width: 450px;
+            max-width: 400px; /* Reduzi um pouco para os botões ficarem mais juntos */
             margin-top: 30px;
         }
 
         .circle-btn {
             aspect-ratio: 1 / 1;
-            width: 100%;
+            /* Tamanho reduzido para o padrão 'normal' */
+            width: 90px; 
+            height: 90px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            text-decoration: none; color: #fff; font-weight: bold; font-size: 0.75rem;
+            text-decoration: none; color: #fff; font-weight: bold; font-size: 0.7rem;
             text-transform: uppercase;
-            /* Fundo semi-transparente para o botão destacar do universo */
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
             border: 3px solid var(--neon);
-            box-shadow: 0 0 15px var(--neon), inset 0 0 10px var(--neon);
+            box-shadow: 0 0 12px var(--neon);
             transition: 0.3s ease;
+            margin: 0 auto;
         }
 
         .circle-btn:hover { 
             transform: scale(1.1); 
-            box-shadow: 0 0 30px var(--neon), inset 0 0 20px var(--neon);
+            box-shadow: 0 0 25px var(--neon);
             background: rgba(255,255,255,0.1); 
         }
 
-        /* Rodapé (Mantido com sua frase) */
         footer { margin-top: auto; padding: 40px 20px; }
         .footer-text { color: #888; font-size: 0.9rem; margin-bottom: 10px; }
-        .insta-icon { width: 40px; margin-top: 5px; display: inline-block; filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
+        .insta-icon { width: 40px; margin-top: 5px; display: inline-block; }
 
         @media (max-width: 450px) {
-            .grid { grid-template-columns: repeat(2, 1fr); }
+            .grid { 
+                grid-template-columns: repeat(3, 1fr); /* Mantendo 3 colunas para os botões menores */
+                gap: 15px;
+            }
+            .circle-btn { width: 85px; height: 85px; font-size: 0.65rem; }
             .logo-box h1 { font-size: 2.5rem; }
         }
     </style>
