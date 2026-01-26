@@ -5,76 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zathura - O Universo do Cinema</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; }
+        body { 
+            margin: 0; padding: 0; 
+            background-color: #050505; 
+            color: #fff; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            overflow-x: hidden;
+        }
 
-        /* 1. Header Transparente */
+        /* 1. Header Transparente e Discreto */
         header {
             position: absolute;
             top: 0; width: 100%;
             display: flex; justify-content: center;
-            padding: 20px 0; z-index: 10;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+            padding: 25px 0; z-index: 10;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
         }
-        header nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+        header nav a { 
+            color: rgba(255,255,255,0.8); 
+            text-decoration: none; 
+            margin: 0 20px; 
+            font-size: 0.85rem; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+        }
+        header nav a:hover { color: #4da6ff; }
 
-        /* 2. Hero Section (A Imagem é o Centro) */
+        /* 2. Hero Section: A Estrela do Site */
         .hero {
             height: 100vh;
             width: 100%;
             background: url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center;
             background-size: cover;
             display: flex;
-            align-items: flex-end; /* Gradiente começa de baixo */
+            align-items: flex-end;
         }
-        .hero-overlay {
-            width: 100%; height: 30%;
-            background: linear-gradient(to top, #050505, transparent);
+        .hero-fade {
+            width: 100%; height: 40%;
+            background: linear-gradient(to top, #050505 10%, transparent 100%);
         }
 
-        /* 3. Área de Conteúdo (Abaixo da Imagem) */
-        .content { padding: 40px 20px; text-align: center; }
-        
-        .welcome-box { margin-bottom: 40px; }
-        .welcome-box h2 { font-size: 1.8rem; margin: 0; color: #4da6ff; }
-        .welcome-box p { font-size: 1.1rem; color: #888; margin: 10px 0; }
-
-        /* 4. Botões de Gênero (Fieis à imagem) */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
+        /* 3. Área de Conteúdo Funcional */
+        .content { 
+            padding: 60px 20px; 
+            text-align: center; 
+            max-width: 1000px; 
             margin: 0 auto;
         }
-        .btn-genero {
-            background: #0a0a0a;
+        
+        .welcome-text { margin-bottom: 50px; }
+        .welcome-text h2 { font-size: 2rem; margin: 0; color: #fff; letter-spacing: 1px; }
+        .welcome-text p { font-size: 1.2rem; color: #4da6ff; margin: 10px 0; font-weight: 300; }
+
+        /* 4. Botões de Gênero: Estilo Cápsula com Glow */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: 25px; 
+        }
+        .btn-portal {
+            background: rgba(20, 20, 20, 0.8);
             color: #fff;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 22px;
+            border-radius: 50px; /* Formato cápsula */
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 1px solid #1a1a1a;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
-            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
         }
-        /* Glow conforme a cor do gênero */
-        .btn-genero:hover {
-            transform: translateY(-5px);
-            border-color: var(--glow);
-            box-shadow: 0 0 15px var(--glow);
+        .btn-portal:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: var(--color);
+            box-shadow: 0 0 25px var(--color);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        /* 5. Rodapé */
-        footer { margin-top: 80px; padding: 40px; border-top: 1px solid #111; }
-        .insta-footer { text-decoration: none; color: #666; font-size: 0.8rem; }
-        .insta-icon { width: 35px; margin-top: 15px; filter: grayscale(1); transition: 0.3s; }
-        .insta-icon:hover { filter: none; }
+        /* 5. Rodapé Conforme Instrução Salva */
+        footer { 
+            margin-top: 100px; 
+            padding: 60px 20px; 
+            border-top: 1px solid #111; 
+            background: #000;
+        }
+        .insta-footer { text-decoration: none; color: #555; display: block; margin-top: 10px; }
+        .insta-icon { width: 45px; transition: 0.3s; margin-top: 15px; }
+        .insta-icon:hover { transform: scale(1.1); filter: drop-shadow(0 0 10px #e1306c); }
 
+        /* Responsividade Mobile */
         @media (max-width: 600px) {
-            .hero { height: 80vh; background-position: center top; }
-            .grid { grid-template-columns: 1fr 1fr; }
+            .hero { height: 75vh; }
+            .welcome-text h2 { font-size: 1.5rem; }
+            .grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .btn-portal { padding: 15px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -85,22 +110,23 @@
             <a href="/">Início</a>
             <a href="#">Filmes</a>
             <a href="#">Gêneros</a>
+            <a href="#">Clássicos</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-overlay"></div>
+        <div class="hero-fade"></div>
     </section>
 
     <div class="content">
-        <div class="welcome-box">
+        <div class="welcome-text">
             <h2>Sejam bem-vindos à Zathura Stream!</h2>
             <p>Onde o cinema vai até sua casa</p>
         </div>
 
         <div class="grid">
             {% for g in generos %}
-            <a href="/categoria/{{ g.slug }}" class="btn-genero" style="--glow: {{ g.cor }}">
+            <a href="/categoria/{{ g.slug }}" class="btn-portal" style="--color: {{ g.cor }}">
                 {{ g.nome }}
             </a>
             {% endfor %}
