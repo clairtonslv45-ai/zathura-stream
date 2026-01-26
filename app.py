@@ -15,6 +15,9 @@ generos = [
 
 filmes_db = {
     "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}],
+    "terror": [
+        {"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"}
+    ],
     "comedia": [
         {"titulo": "Pelas garotas e pela glória (2009)", "link": "https://ok.ru/videoembed/6681522866916"},
         {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/videoembed/6695168969223"},
