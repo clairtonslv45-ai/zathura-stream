@@ -3,142 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zathura - O Universo do Cinema</title>
+    <title>Zathura Stream</title>
     <style>
+        /* O Background Real: Imagem fixa que cobre tudo */
         body { 
             margin: 0; padding: 0; 
-            background-color: #050505; 
-            color: #fff; 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
-            overflow-x: hidden;
-        }
-
-        /* 1. Header Transparente e Discreto */
-        header {
-            position: absolute;
-            top: 0; width: 100%;
-            display: flex; justify-content: center;
-            padding: 25px 0; z-index: 10;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
-        }
-        header nav a { 
-            color: rgba(255,255,255,0.8); 
-            text-decoration: none; 
-            margin: 0 20px; 
-            font-size: 0.85rem; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            transition: 0.3s;
-        }
-        header nav a:hover { color: #4da6ff; }
-
-        /* 2. Hero Section: A Estrela do Site */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            background: url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center;
+            background: #000 url('https://r2.erweima.ai/i/1000008573.png') no-repeat center center fixed;
             background-size: cover;
-            display: flex;
-            align-items: flex-end;
-        }
-        .hero-fade {
-            width: 100%; height: 40%;
-            background: linear-gradient(to top, #050505 10%, transparent 100%);
+            color: #fff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
-        /* 3. Área de Conteúdo Funcional */
-        .content { 
-            padding: 60px 20px; 
-            text-align: center; 
-            max-width: 1000px; 
-            margin: 0 auto;
+        /* Camada para dar profundidade e leitura */
+        .glass-overlay {
+            min-height: 100vh;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Topo Minimalista */
+        header { 
+            padding: 80px 20px 20px; 
+            text-align: center;
         }
         
-        .welcome-text { margin-bottom: 50px; }
-        .welcome-text h2 { font-size: 2rem; margin: 0; color: #fff; letter-spacing: 1px; }
-        .welcome-text p { font-size: 1.2rem; color: #4da6ff; margin: 10px 0; font-weight: 300; }
+        /* Mensagem de Boas-vindas com efeito Glass */
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .welcome-card h2 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; color: #4da6ff; }
+        .welcome-card p { margin: 10px 0 0; font-size: 1rem; color: #eee; font-weight: 300; }
 
-        /* 4. Botões de Gênero: Estilo Cápsula com Glow */
+        /* Container de Botões */
+        .container { 
+            width: 90%; 
+            max-width: 900px; 
+            padding: 40px 0;
+            flex-grow: 1;
+        }
+
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 15px; 
         }
+
+        /* Botões Estilo "Portal" */
         .btn-portal {
-            background: rgba(20, 20, 20, 0.8);
-            color: #fff;
-            padding: 22px;
-            border-radius: 50px; /* Formato cápsula */
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            padding: 25px 15px;
+            border-radius: 12px;
             text-decoration: none;
+            color: #fff;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+
         .btn-portal:hover {
-            transform: translateY(-8px) scale(1.05);
-            border-color: var(--color);
-            box-shadow: 0 0 25px var(--color);
-            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--glow);
+            box-shadow: 0 0 20px var(--glow);
         }
 
-        /* 5. Rodapé Conforme Instrução Salva */
+        /* Linha de cor no topo do botão */
+        .btn-portal::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--glow);
+        }
+
+        /* Rodapé com a sua instrução */
         footer { 
-            margin-top: 100px; 
-            padding: 60px 20px; 
-            border-top: 1px solid #111; 
-            background: #000;
+            width: 100%; text-align: center; padding: 60px 0;
+            background: linear-gradient(transparent, #000);
         }
-        .insta-footer { text-decoration: none; color: #555; display: block; margin-top: 10px; }
-        .insta-icon { width: 45px; transition: 0.3s; margin-top: 15px; }
-        .insta-icon:hover { transform: scale(1.1); filter: drop-shadow(0 0 10px #e1306c); }
+        .insta-footer { text-decoration: none; color: #aaa; font-size: 13px; }
+        .insta-icon { width: 40px; margin-top: 15px; display: block; margin-left: auto; margin-right: auto; }
 
-        /* Responsividade Mobile */
+        /* Responsividade */
         @media (max-width: 600px) {
-            .hero { height: 75vh; }
-            .welcome-text h2 { font-size: 1.5rem; }
-            .grid { grid-template-columns: 1fr 1fr; gap: 15px; }
-            .btn-portal { padding: 15px; font-size: 0.8rem; }
+            header { padding-top: 40px; }
+            .grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
+    <div class="glass-overlay">
+        <header>
+            </header>
 
-    <header>
-        <nav>
-            <a href="/">Início</a>
-            <a href="#">Filmes</a>
-            <a href="#">Gêneros</a>
-            <a href="#">Clássicos</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-fade"></div>
-    </section>
-
-    <div class="content">
-        <div class="welcome-text">
+        <div class="welcome-card">
             <h2>Sejam bem-vindos à Zathura Stream!</h2>
             <p>Onde o cinema vai até sua casa</p>
         </div>
 
-        <div class="grid">
-            {% for g in generos %}
-            <a href="/categoria/{{ g.slug }}" class="btn-portal" style="--color: {{ g.cor }}">
-                {{ g.nome }}
-            </a>
-            {% endfor %}
+        <div class="container">
+            <div class="grid">
+                {% for g in generos %}
+                <a href="/categoria/{{ g.slug }}" class="btn-portal" style="--glow: {{ g.cor }}">
+                    {{ g.nome }}
+                </a>
+                {% endfor %}
+            </div>
         </div>
+
+        <footer>
+            <p>Sugestões? Contacte-me no Instagram</p>
+            <a href="https://instagram.com/clairtonslv45-ai" class="insta-footer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="insta-icon">
+            </a>
+        </footer>
     </div>
-
-    <footer>
-        <p>Sugestões? Contacte-me no Instagram</p>
-        <a href="https://instagram.com/clairtonslv45-ai" class="insta-footer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="insta-icon">
-        </a>
-    </footer>
-
 </body>
 </html>
