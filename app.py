@@ -37,6 +37,7 @@ filmes_db = {
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "fantasia": [
+        {"titulo": "Coração de tinta o livro mágico", "link": "https://ok.ru/videoembed/5243438303914"},
         {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"},
         {"titulo": "Onde Vivem os Monstros", "link": "https://ok.ru/videoembed/2645490862724"},
         {"titulo": "O lar das crianças peculiares", "link": "https://ok.ru/videoembed/456581319275"},
