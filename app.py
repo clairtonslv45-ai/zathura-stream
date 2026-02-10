@@ -42,7 +42,8 @@ filmes_db = {
     "animacao": [
         {"titulo": "A Lenda dos Guardiões", "link": "https://ok.ru/videoembed/383529192100"},
         {"titulo": "Planeta do Tesouro", "link": "https://ok.ru/videoembed/1551464860379"},
-        {"titulo": "Planeta 51", "link": "https://ok.ru/videoembed/7251048598034"}
+        {"titulo": "Planeta 51", "link": "https://ok.ru/videoembed/7251048598034"},
+        {"titulo": "A Fuga do Planeta Terra", "link": "https://ok.ru/videoembed/4899872443050"}
     ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
