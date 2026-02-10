@@ -39,7 +39,8 @@ filmes_db = {
         {"titulo": "Onde Vivem os Monstros", "link": "https://ok.ru/videoembed/2645490862724"}
     ],
     "animacao": [
-        {"titulo": "A Lenda dos Guardiões", "link": "https://ok.ru/videoembed/383529192100"}
+        {"titulo": "A Lenda dos Guardiões", "link": "https://ok.ru/videoembed/383529192100"},
+        {"titulo": "Planeta do Tesouro", "link": "https://ok.ru/videoembed/1551464860379"}
     ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
