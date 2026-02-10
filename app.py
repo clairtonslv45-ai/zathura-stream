@@ -21,6 +21,7 @@ filmes_db = {
         {"titulo": "Olhos famintos 1 (2001) Dublado", "link": "https://ok.ru/videoembed/383529192100"}
     ],
     "comedia": [
+        {"titulo": "CJ7 o brinquedo mágico", "link": "https://ok.ru/videoembed/10147592276650"},
         {"titulo": "Kung Pow: O Mestre da Confusão", "link": "https://ok.ru/videoembed/9743619852946"},
         {"titulo": "Pelas garotas e pela glória (2009)", "link": "https://ok.ru/videoembed/6681522866916"},
         {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/videoembed/6695168969223"},
