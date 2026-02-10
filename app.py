@@ -10,14 +10,13 @@ generos = [
     {"nome": "Drama", "slug": "drama", "cor": "#ff00ff"},
     {"nome": "Romance", "slug": "romance", "cor": "#ff1493"},
     {"nome": "Animação", "slug": "animacao", "cor": "#00ff00"},
+    {"nome": "Fantasia", "slug": "fantasia", "cor": "#9933ff"},
     {"nome": "Cinema antigo", "slug": "cinema-antigo", "cor": "#00ffff"}
 ]
 
 filmes_db = {
     "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}],
-    "terror": [
-        {"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"}
-    ],
+    "terror": [{"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"}],
     "comedia": [
         {"titulo": "Pelas garotas e pela glória (2009)", "link": "https://ok.ru/videoembed/6681522866916"},
         {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/videoembed/6695168969223"},
@@ -32,6 +31,9 @@ filmes_db = {
         {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/videoembed/1396647398042"}
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
+    "fantasia": [
+        {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"}
+    ],
     "animacao": [],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
