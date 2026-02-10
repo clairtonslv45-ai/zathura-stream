@@ -16,7 +16,10 @@ generos = [
 
 filmes_db = {
     "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}],
-    "terror": [{"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"}],
+    "terror": [
+        {"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"},
+        {"titulo": "Olhos famintos 1 (2001) Dublado", "link": "https://ok.ru/videoembed/383529192100"}
+    ],
     "comedia": [
         {"titulo": "Pelas garotas e pela glória (2009)", "link": "https://ok.ru/videoembed/6681522866916"},
         {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/videoembed/6695168969223"},
@@ -34,7 +37,9 @@ filmes_db = {
     "fantasia": [
         {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"}
     ],
-    "animacao": [],
+    "animacao": [
+        {"titulo": "A Lenda dos Guardiões", "link": "https://ok.ru/videoembed/383529192100"}
+    ],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
         {"titulo": "O Fantasma da Ópera (1989)", "link": "https://ok.ru/videoembed/4830921034296"},
