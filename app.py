@@ -35,7 +35,8 @@ filmes_db = {
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "fantasia": [
-        {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"}
+        {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"},
+        {"titulo": "Onde Vivem os Monstros", "link": "https://ok.ru/videoembed/2645490862724"}
     ],
     "animacao": [
         {"titulo": "A Lenda dos Guardiões", "link": "https://ok.ru/videoembed/383529192100"}
