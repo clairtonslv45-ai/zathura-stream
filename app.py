@@ -37,7 +37,8 @@ filmes_db = {
     "fantasia": [
         {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"},
         {"titulo": "Onde Vivem os Monstros", "link": "https://ok.ru/videoembed/2645490862724"},
-        {"titulo": "O lar das crianças peculiares", "link": "https://ok.ru/videoembed/456581319275"}
+        {"titulo": "O lar das crianças peculiares", "link": "https://ok.ru/videoembed/456581319275"},
+        {"titulo": "O Mistério do Relógio na Parede", "link": "https://ok.ru/videoembed/1851630881387"}
     ],
     "animacao": [
         {"titulo": "A Lenda dos Guardiões", "link": "https://ok.ru/videoembed/383529192100"},
