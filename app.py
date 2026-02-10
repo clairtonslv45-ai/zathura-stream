@@ -1,4 +1,4 @@
-from Flask import Flask, render_template, request
+from flask import Flask, render_template, request
 import os
 
 app = Flask(__name__)
@@ -38,10 +38,10 @@ filmes_db = {
     ],
     "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "fantasia": [
+        {"titulo": "O Lar das Crianças Peculiares", "link": "https://ok.ru/videoembed/7281445309082"},
         {"titulo": "Coração de tinta o livro mágico", "link": "https://ok.ru/videoembed/5243438303914"},
         {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"},
         {"titulo": "Onde Vivem os Monstros", "link": "https://ok.ru/videoembed/2645490862724"},
-        {"titulo": "O lar das crianças peculiares", "link": "https://ok.ru/videoembed/456581319275"},
         {"titulo": "O Mistério do Relógio na Parede", "link": "https://ok.ru/videoembed/1851630881387"},
         {"titulo": "O Labirinto do Fauno", "link": "https://ok.ru/videoembed/7406352730852"}
     ],
