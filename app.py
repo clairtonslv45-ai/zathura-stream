@@ -37,7 +37,10 @@ filmes_db = {
         {"titulo": "O Profissional (1994)", "link": "https://ok.ru/videoembed/3663969651428"},
         {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/videoembed/1396647398042"}
     ],
-    "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
+    "romance": [
+        {"titulo": "Deite Comigo", "link": "https://ok.ru/videoembed/22931968317"},
+        {"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}
+    ],
     "fantasia": [
         {"titulo": "O Lar das Crianças Peculiares", "link": "https://ok.ru/videoembed/7281445309082"},
         {"titulo": "Coração de tinta o livro mágico", "link": "https://ok.ru/videoembed/5243438303914"},
