@@ -15,8 +15,12 @@ generos = [
 ]
 
 filmes_db = {
-    "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}],
+    "acao": [
+        {"titulo": "Fugindo da morte", "link": "https://ok.ru/videoembed/9134406896224"},
+        {"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}
+    ],
     "terror": [
+        {"titulo": "13 Fantasmas", "link": "https://ok.ru/videoembed/4921728764528"},
         {"titulo": "Deixe ela entrar", "link": "https://ok.ru/videoembed/1051961526978"},
         {"titulo": "Host (2025)", "link": "https://ok.ru/videoembed/11398295128790"},
         {"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"},
