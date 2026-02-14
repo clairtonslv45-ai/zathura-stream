@@ -17,6 +17,7 @@ generos = [
 filmes_db = {
     "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}],
     "terror": [
+        {"titulo": "Host (2025)", "link": "https://ok.ru/videoembed/11398295128790"},
         {"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"},
         {"titulo": "Olhos famintos 1 (2001) Dublado", "link": "https://ok.ru/videoembed/383529192100"}
     ],
