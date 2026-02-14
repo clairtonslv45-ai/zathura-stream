@@ -20,6 +20,7 @@ filmes_db = {
         {"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}
     ],
     "terror": [
+        {"titulo": "Tamara", "link": "https://ok.ru/videoembed/1756366899720"},
         {"titulo": "A bruxa da casa ao lado", "link": "https://ok.ru/videoembed/2004919323357"},
         {"titulo": "13 Fantasmas", "link": "https://ok.ru/videoembed/4921728764528"},
         {"titulo": "Deixe ela entrar", "link": "https://ok.ru/videoembed/1051961526978"},
