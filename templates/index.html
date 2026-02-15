@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Meus Filmes</title>
-</head>
+<head><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
 <body>
-    <header><h1>🎥 Cine Privado</h1></header>
-    <div class="container">
-        {% for g in generos %}
-        <a href="/categoria/{{ g.slug }}" class="card" style="background: {{ g.cor }}">{{ g.nome }}</a>
-        {% endfor %}
-    </div>
-    <footer>
-        <p>Sugestões? Contacte-me no Instagram</p>
-        <a href="https://instagram.com/seu_usuario" class="insta-icon">📸</a>
-    </footer>
+    <h1>🎥 Cine Privado</h1>
+    {% for g in generos %}
+    <div style="margin: 10px;"><a href="/categoria/{{ g.slug }}" style="background:{{ g.cor }}; padding: 10px; display: inline-block; color: white; text-decoration: none; border-radius: 5px;">{{ g.nome }}</a></div>
+    {% endfor %}
+    <hr>
+    <p>Sugestões? Contacte-me no Instagram</p>
+    <a href="https://instagram.com/seu_usuario">📸</a>
 </body>
 </html>
