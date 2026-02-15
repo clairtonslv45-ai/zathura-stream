@@ -10,61 +10,23 @@ generos = [
     {"nome": "Drama", "slug": "drama", "cor": "#ff00ff"},
     {"nome": "Romance", "slug": "romance", "cor": "#ff1493"},
     {"nome": "Animação", "slug": "animacao", "cor": "#00ff00"},
-    {"nome": "Fantasia", "slug": "fantasia", "cor": "#9933ff"},
     {"nome": "Cinema antigo", "slug": "cinema-antigo", "cor": "#00ffff"}
 ]
 
 filmes_db = {
-    "acao": [
-        {"titulo": "Fugindo da morte", "link": "https://ok.ru/videoembed/9134406896224"},
-        {"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}
-    ],
-    "terror": [
-        {"titulo": "Terror na escuridão", "link": "https://ok.ru/videoembed/35507473010"},
-        {"titulo": "Tamara", "link": "https://ok.ru/videoembed/1756366899720"},
-        {"titulo": "A bruxa da casa ao lado", "link": "https://ok.ru/videoembed/2004919323357"},
-        {"titulo": "Deixe ela entrar", "link": "https://ok.ru/videoembed/1051961526978"},
-        {"titulo": "Terror no Pântano 2", "link": "https://ok.ru/videoembed/991264246391"},
-        {"titulo": "Olhos famintos 1 (2001) Dublado", "link": "https://ok.ru/videoembed/383529192100"}
-    ],
+    "acao": [{"titulo": "Drive - Tensão Máxima (1997)", "link": "https://ok.ru/videoembed/1922594835104"}],
     "comedia": [
-        {"titulo": "Camp Rock", "link": "https://ok.ru/videoembed/9450417818358"},
-        {"titulo": "CJ7 o brinquedo mágico", "link": "https://ok.ru/videoembed/10147592276650"},
-        {"titulo": "Kung Pow: O Mestre da Confusão", "link": "https://ok.ru/videoembed/9743619852946"},
-        {"titulo": "Pelas garotas e pela glória (2009)", "link": "https://ok.ru/videoembed/6681522866916"},
         {"titulo": "Frat Party (A festa) (2009)", "link": "https://ok.ru/videoembed/6695168969223"},
         {"titulo": "Um maluco no golfe (1996)", "link": "https://ok.ru/videoembed/4207491549845"},
         {"titulo": "As Apimentadas", "link": "https://ok.ru/videoembed/559416216263"},
         {"titulo": "As Apimentadas - Mandando Ver", "link": "https://ok.ru/videoembed/8832564726368"}
     ],
     "drama": [
-        {"titulo": "A Professora de Piano", "link": "https://ok.ru/videoembed/1291109796413"},
-        {"titulo": "Notorious B.I.G. (2009)", "link": "https://ok.ru/videoembed/30186211954"},
         {"titulo": "Corra, Lola, Corra (1998)", "link": "https://ok.ru/videoembed/6370743749303"},
         {"titulo": "O Profissional (1994)", "link": "https://ok.ru/videoembed/3663969651428"},
         {"titulo": "8 Mile- Rua das ilusões (2002)", "link": "https://ok.ru/videoembed/1396647398042"}
     ],
-    "romance": [
-        {"titulo": "Secretária (2002)", "link": "https://ok.ru/videoembed/4215218309860"},
-        {"titulo": "Desejos Passageiros", "link": "https://ok.ru/videoembed/5396575750827"},
-        {"titulo": "Deite Comigo", "link": "https://ok.ru/videoembed/22931968317"},
-        {"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}
-    ],
-    "fantasia": [
-        {"titulo": "O Lar das Crianças Peculiares", "link": "https://ok.ru/videoembed/7281445309082"},
-        {"titulo": "Coração de tinta o livro mágico", "link": "https://ok.ru/videoembed/5243438303914"},
-        {"titulo": "Edward mãos de tesoura", "link": "https://ok.ru/videoembed/1707365304907"},
-        {"titulo": "Onde Vivem os Monstros", "link": "https://ok.ru/videoembed/2645490862724"},
-        {"titulo": "O Mistério do Relógio na Parede", "link": "https://ok.ru/videoembed/1851630881387"},
-        {"titulo": "O Labirinto do Fauno", "link": "https://ok.ru/videoembed/7406352730852"}
-    ],
-    "animacao": [
-        {"titulo": "A Lenda dos Guardiões", "link": "https://ok.ru/videoembed/383529192100"},
-        {"titulo": "Planeta do Tesouro", "link": "https://ok.ru/videoembed/1551464860379"},
-        {"titulo": "Planeta 51", "link": "https://ok.ru/videoembed/7251048598034"},
-        {"titulo": "A Fuga do Planeta Terra", "link": "https://ok.ru/videoembed/4899872443050"},
-        {"titulo": "Reino Escondido", "link": "https://ok.ru/videoembed/1385257044634"}
-    ],
+    "romance": [{"titulo": "Benedetta (2021)", "link": "https://ok.ru/videoembed/10438247451277"}],
     "cinema-antigo": [
         {"titulo": "Clube dos Cinco (1985)", "link": "https://ok.ru/videoembed/8473915624001"},
         {"titulo": "O Fantasma da Ópera (1989)", "link": "https://ok.ru/videoembed/4830921034296"},
@@ -84,6 +46,7 @@ def categoria(slug):
 def player():
     t = request.args.get('t')
     l = request.args.get('l')
+    # Link do Rave que abre o vídeo externamente
     rave_link = f"rave://open?url={l}"
     return render_template('filme.html', filme={"titulo": t, "link": l, "rave": rave_link})
 
