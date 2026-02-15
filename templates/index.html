@@ -1,13 +1,65 @@
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Green - Premium</title>
+    <style>
+        :root { --primary: #00ff88; --secondary: #ffffff; --bg: #0b0f0d; --card: #151a17; }
+        body { background: var(--bg); color: var(--secondary); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+        
+        header { background: rgba(11, 15, 13, 0.95); border-bottom: 2px solid var(--primary); padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2); }
+        header h1 { margin: 0; font-size: 1.8rem; color: var(--primary); letter-spacing: 2px; }
+        header h1 span { color: #fff; font-weight: 300; }
+
+        .hero { padding: 40px 20px; text-align: center; background: linear-gradient(to bottom, #111d17, var(--bg)); }
+        .hero p { color: #888; font-size: 1.1rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 20px; max-width: 1200px; margin: 0 auto; }
+
+        .card { background: var(--card); border-radius: 15px; overflow: hidden; border: 1px solid #222; transition: all 0.4s ease; position: relative; }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1); }
+        
+        .video-box { width: 100%; line-height: 0; border-bottom: 3px solid var(--primary); }
+        video { width: 100%; }
+
+        .content { padding: 20px; }
+        .content h3 { margin: 0 0 10px; color: var(--secondary); font-size: 1.3rem; }
+        .content p { color: #999; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
+
+        .btn-play { background: var(--primary); color: #000; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.8rem; display: inline-block; transition: 0.3s; }
+        .btn-play:hover { background: #fff; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; border-top: 1px solid #1a1a1a; margin-top: 50px; }
+    </style>
+</head>
 <body>
-    <h1>🎥 Cine Privado</h1>
-    {% for g in generos %}
-    <div style="margin: 10px;"><a href="/categoria/{{ g.slug }}" style="background:{{ g.cor }}; padding: 10px; display: inline-block; color: white; text-decoration: none; border-radius: 5px;">{{ g.nome }}</a></div>
-    {% endfor %}
-    <hr>
-    <p>Sugestões? Contacte-me no Instagram</p>
-    <a href="https://instagram.com/seu_usuario">📸</a>
+    <header>
+        <h1>CINE<span>GREEN</span></h1>
+    </header>
+
+    <div class="hero">
+        <h2>Bem-vindo à sua Biblioteca Privada</h2>
+        <p>Streaming de alta qualidade direto do seu Termux</p>
+    </div>
+
+    <div class="grid">
+        {% for filme in filmes %}
+        <div class="card">
+            <div class="video-box">
+                <video controls playsinline poster="{{ filme.capa }}">
+                    <source src="{{ filme.url }}" type="video/mp4">
+                </video>
+            </div>
+            <div class="content">
+                <h3>{{ filme.titulo }}</h3>
+                <p>{{ filme.sinopse }}</p>
+                <span class="btn-play">DISPONÍVEL AGORA</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>&copy; 2024 CineGreen Private Server - Powered by Termux</footer>
 </body>
 </html>
