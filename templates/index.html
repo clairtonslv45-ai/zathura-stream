@@ -1,128 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zathura Stream</title>
-    <style>
-        body { 
-            margin: 0; padding: 0; 
-            background: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2072&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-        }
-
-        .overlay {
-            min-height: 100vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-        }
-
-        header { margin-bottom: 30px; }
-        .logo-box h1 { 
-            font-size: 3.5rem; margin: 0; font-weight: 900; letter-spacing: 5px;
-            background: linear-gradient(to bottom, #fff 30%, #4da6ff 70%, #0056b3 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(77, 166, 255, 0.8));
-            text-transform: uppercase;
-        }
-        .logo-box p { 
-            font-size: 1rem; margin: 0; font-weight: bold; letter-spacing: 2px;
-            color: #fff; text-shadow: 0 0 10px rgba(77, 166, 255, 1);
-            text-transform: uppercase;
-        }
-
-        .welcome { margin: 20px 0; }
-        .welcome h2 { font-size: 1.2rem; margin: 0; font-weight: normal; }
-        .welcome p { font-size: 1rem; color: #4da6ff; margin: 5px 0; font-weight: bold; }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-            width: 100%; 
-            max-width: 400px;
-            margin-top: 30px;
-        }
-
-        .circle-btn {
-            aspect-ratio: 1 / 1;
-            width: 90px; 
-            height: 90px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            text-decoration: none; color: #fff; font-weight: bold; font-size: 0.7rem;
-            text-transform: uppercase;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            border: 3px solid var(--neon);
-            box-shadow: 0 0 12px var(--neon);
-            transition: 0.3s ease;
-            margin: 0 auto;
-        }
-
-        .circle-btn:hover { 
-            transform: scale(1.1); 
-            box-shadow: 0 0 25px var(--neon);
-            background: rgba(255,255,255,0.1); 
-        }
-
-        /* Rodapé Ajustado */
-        footer { margin-top: auto; padding: 40px 20px; }
-        .footer-text { color: #888; font-size: 0.9rem; margin-bottom: 10px; }
-        
-        .insta-link {
-            text-decoration: none;
-            color: #fff;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .insta-link:hover { opacity: 0.8; transform: scale(1.05); }
-        .insta-icon { width: 30px; }
-        .insta-user { font-size: 1.1rem; letter-spacing: 1px; }
-
-        @media (max-width: 450px) {
-            .grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
-            .circle-btn { width: 85px; height: 85px; }
-            .logo-box h1 { font-size: 2.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Meus Filmes</title>
 </head>
 <body>
-    <div class="overlay">
-        <header class="logo-box">
-            <h1>ZATHURA</h1>
-            <p>O UNIVERSO DO ENTRETENIMENTO</p>
-        </header>
-
-        <div class="welcome">
-            <h2>Sejam bem-vindos à Zathura Stream!</h2>
-            <p>Onde o cinema vai até sua casa</p>
-        </div>
-
-        <div class="grid">
-            {% for g in generos %}
-            <a href="/categoria/{{ g.slug }}" class="circle-btn" style="--neon: {{ g.cor }}">
-                {{ g.nome }}
-            </a>
-            {% endfor %}
-        </div>
-
-        <footer>
-            <p class="footer-text">Sugestões? Contacte-me no Instagram</p>
-            <a href="https://instagram.com/yruever7" class="insta-link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="insta-icon" alt="Instagram">
-                <span class="insta-user">yruever7</span>
-            </a>
-        </footer>
+    <header><h1>🎥 Cine Privado</h1></header>
+    <div class="container">
+        {% for g in generos %}
+        <a href="/categoria/{{ g.slug }}" class="card" style="background: {{ g.cor }}">{{ g.nome }}</a>
+        {% endfor %}
     </div>
+    <footer>
+        <p>Sugestões? Contacte-me no Instagram</p>
+        <a href="https://instagram.com/seu_usuario" class="insta-icon">📸</a>
+    </footer>
 </body>
 </html>

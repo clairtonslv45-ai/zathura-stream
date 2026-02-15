@@ -1,28 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ genero.nome }} - Zathura</title>
-    <style>
-        body { background: #0d0d0d; color: #fff; font-family: sans-serif; padding: 20px; }
-        h1 { color: {{ genero.cor }}; text-transform: uppercase; letter-spacing: 3px; }
-        .lista-filmes { display: flex; flex-direction: column; gap: 10px; }
-        .item-filme { background: #1a1a1a; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-assistir { background: {{ genero.cor }}; color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ genero.nome }}</title>
 </head>
 <body>
-    <h1>{{ genero.nome }}</h1>
-    <div class="lista-filmes">
+    <header><h1>{{ genero.nome }}</h1></header>
+    <div class="container">
         {% for f in filmes %}
-        <div class="item-filme">
-            <span>{{ f.titulo }}</span>
-            <a href="/player?t={{ f.titulo }}&l={{ f.link }}" class="btn-assistir">ASSISTIR</a>
-        </div>
+        <a href="/player?t={{ f.titulo }}&l={{ f.link }}" class="filme-item">{{ f.titulo }}</a>
         {% endfor %}
     </div>
-    <br>
-    <a href="/" style="color: #888; text-decoration: none;">← Voltar ao Início</a>
+    <div style="text-align: center;"><a href="/" style="color: #fff;">Voltar</a></div>
 </body>
 </html>
