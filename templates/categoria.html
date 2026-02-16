@@ -1,16 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ genero.nome }}</title>
+    <style>
+        body { 
+            background: #000; 
+            color: #fff; 
+            font-family: sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px; 
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: {{ genero.cor }};
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px {{ genero.cor }}80;
+        }
+
+        .movie-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Estilo dos botões dos filmes */
+        .movie-button {
+            background: #1a1a1a;
+            color: #eee;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            border-left: 5px solid {{ genero.cor }};
+            transition: 0.3s;
+            display: block;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .movie-button:hover {
+            background: #252525;
+            transform: translateX(10px);
+            color: #fff;
+        }
+
+        .footer-nav {
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .btn-back {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #444;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        
+        .btn-back:hover { background: #333; color: #fff; }
+    </style>
 </head>
 <body>
-    <header><h1>{{ genero.nome }}</h1></header>
-    <div class="container">
+    <div class="category-title">{{ genero.nome }}</div>
+
+    <div class="movie-list">
         {% for f in filmes %}
-        <a href="/player?t={{ f.titulo }}&l={{ f.link }}" class="filme-item">{{ f.titulo }}</a>
+        <a href="/player?t={{ f.titulo }}&l={{ f.link }}" class="movie-button">
+            ▶ {{ f.titulo }}
+        </a>
         {% endfor %}
     </div>
-    <div style="text-align: center;"><a href="/" style="color: #fff;">Voltar</a></div>
+
+    <div class="footer-nav">
+        <a href="/" class="btn-back">← Voltar para Início</a>
+    </div>
 </body>
 </html>
