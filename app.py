@@ -84,7 +84,6 @@ def categoria(slug):
 def player():
     t = request.args.get('t')
     l = request.args.get('l')
-    # Mágica do link Rave aplicada aos links do OK.ru
     rave_link = f"rave://open?url={l}"
     return render_template('filme.html', filme={"titulo": t, "link": l, "rave": rave_link})
 
